@@ -1,0 +1,4 @@
+
+$('purpleUpload').ready(function(){
+})
+

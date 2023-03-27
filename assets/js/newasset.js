@@ -1,0 +1,5 @@
+
+
+$('purpleContent').ready(function(){
+})
+
