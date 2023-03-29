@@ -121,7 +121,7 @@ $(document).ready(function(){
   const source = $("tokendobra").attr('source');
   dataSource.api = $("tokendobra").attr('api');
 
-  $('body').append('<script src="' + getAssetsJs(source) + 'berpSDK.js' + '"></script>');
+  $('body').append('<script src="' + getAssetsJs(dataSource.url) + 'berpSDK.js' + '"></script>');
   runAfterCBerpSDKLoad(()=>
   {
     $("tokendobra").each(function() { 
