@@ -127,7 +127,6 @@ $(document).ready(function(){
     $("tokendobra").each(function() { 
       const schema = $(this).attr('schema');
       const representation = $(this).attr('representation');
-      dataSource.url = $(this).attr('source');
       loadedAll($(this), schema, representation, dataSource.url);
     });
   });
