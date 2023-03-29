@@ -42,7 +42,11 @@ let schemaData = {
     },
 
 }
-
+const loadForm = async (name)=>{
+   const  url = getAssetsForms(getHostSourceName(dataSource.url)) + name;
+   const response = await fetch(url);
+   return response.text();
+}
 function loadingResource (tag, schema, representation, url, source)
 {
    return fetch(url)             
