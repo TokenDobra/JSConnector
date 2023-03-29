@@ -1,4 +1,8 @@
 const templWork = 'work.form';
+const templFund = 'fund.form';
+const templFundPC = 'fund_pc.form';
+
+
 
 const getParams = (obj)=>{
     return [{name: '${url_work}',
@@ -24,20 +28,65 @@ const getParams = (obj)=>{
            },
            ];
 }
-const loadGallery = async () =>
+const getParamsFund = (obj) => {
+
+   return [{ name: '${url}',
+             value: ''
+           },
+           {name: '${avatar}',
+             value: 'https://github.com/jamb17/token-dobra/blob/main/avatar.png?raw=true'
+           },
+           {name: '${name}',
+             value: obj['subject_data.name']
+           },
+
+           {name: '${assets}',
+             value: 12
+           },
+           {name: '${nft}',
+             value: obj.offer_quantity
+           },
+           {name: '${fund_url}',
+             value: obj.offer_quantity
+           },
+          ];
+}
+const loadGallery = async (offers) =>
 {
   const formWork = await loadForm(templWork);
 
-  const offers = await berpSDK.api.getOffers();
   const content = offers.reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
   $('.works').append(content);
 }
 
+const loadFundPC  = async (offers)=>
+{
+  const formFundPC = await loadForm(templFundPC);
+  const content = fillFormData(formFundPC, getParamsFund(offers[0]));
+  $('.funds.pc>.container').append(content);
+}
+const loadFund  = async (offers)=>
+{
+  const formFund = await loadForm(templFund);
+  const content = fillFormData(formFund, getParamsFund(offers[0]));
+  $('.funds:not(.pc)>.container').append(content);
+}
+
+
+const loadContent = async() =>
+{
+  const offers = await berpSDK.api.getOffers();
+  if(!offers.length)
+    return;
+
+//  await loadGallery(offers);
+  await loadFundPC(offers);
+  await loadFund(offers);
+
+
+}
+
 $(document).ready(function(){
-   loadGallery();
-   $('.funds.pc>.container').append('Фонды');
-   $('.funds:not(.pc)>.container').append('Мобильная');
-
-
+   loadContent();
 });
           

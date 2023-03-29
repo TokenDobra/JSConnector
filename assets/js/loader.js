@@ -32,12 +32,12 @@ let getAssetsForms = function(source)
 let schemaData = {
      tokendobra_main: {
          product: {
-                    js: ['helper.js', 'tokendobra_main.js']
+                    js: ['tokendobra_main.js']
                   }
     },
     TDItem: {
          product: {
-                    js: ['helper.js', 'tokendobra_item.js']
+                    js: ['tokendobra_item.js']
                 }
     },
 
