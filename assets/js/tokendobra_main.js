@@ -2,6 +2,12 @@ const templWork = 'work.form';
 const templFund = 'fund.form';
 const templFundPC = 'fund_pc.form';
 
+const templFundWork = 'fund_work.form';
+const templFundPCWork = 'fund_pc_work.form';
+
+
+
+
 
 
 const getParams = (obj)=>{
@@ -59,17 +65,37 @@ const loadGallery = async (offers) =>
   $('.works').append(content);
 }
 
+const loadFundPCGallery = async (offers) =>
+{
+  const formWork = await loadForm(templFundPCWork);
+
+  const content = offers.reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  $('.funds.pc>.container .wrapper').append(content);
+}
+
+
+
 const loadFundPC  = async (offers)=>
 {
   const formFundPC = await loadForm(templFundPC);
   const content = fillFormData(formFundPC, getParamsFund(offers[0]));
   $('.funds.pc>.container').append(content);
+  await loadFundPCGallery(offers);
 }
+const loadFundGallery = async (offers) =>
+{
+  const formWork = await loadForm(templFundWork);
+
+  const content = offers.reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  $('.funds:not(.pc)>.container .wrapper').append(content);
+}
+
 const loadFund  = async (offers)=>
 {
   const formFund = await loadForm(templFund);
   const content = fillFormData(formFund, getParamsFund(offers[0]));
   $('.funds:not(.pc)>.container').append(content);
+  await loadFundGallery(offers);
 }
 
 
