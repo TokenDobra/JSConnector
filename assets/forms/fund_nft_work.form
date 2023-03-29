@@ -19,7 +19,7 @@
                                             </div>
                                             <div class="progress-bar"><div class="bar" style="width: 20%;"></div></div>
                                             <span data-tool="Эта картина оцифрована в количестве 100 токенов. 1 токен по цене ${asset_price} ₽ и 1 токен по цене 30 000 ₽." class="tool">
-                                                <p class="count tip2"><span>${current_quantity}</span> / ${quantity}</p>
+                                                <p class="count tip2"><span>${sale_quantity}</span> / ${quantity}</p>
                                             </span>
                                         </div>
                                     </div>

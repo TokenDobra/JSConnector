@@ -1,7 +1,7 @@
             <p class="title">Фонды</p>
             <div class="fund">
                 <div class="content">
-                    <div onclick="location.href='fund'" class="description">
+                    <div onclick="location.href='${url}'" class="description">
                         <img src="${avatar}" alt="" class="logo">
                         <div class="head">
                            <p>${name}</p>

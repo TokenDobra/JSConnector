@@ -31,6 +31,9 @@ const getParams = (obj)=>{
            {name: '${author}',
              value: getFullName(obj.asset_data.subject_specification_data.person_data)
            },
+           {name: '${sale_quantity}',
+             value: parseInt(obj.offer_quantity) - parseInt(obj.quantity)
+           },
            ];
 }
 const getParamsFund = (obj) => {

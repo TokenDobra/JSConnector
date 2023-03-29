@@ -31,9 +31,13 @@ const getParams = (obj)=>{
            {name: '${current_quantity}',
              value: obj.quantity
            },
+           {name: '${sale_quantity}',
+             value: parseInt(obj.offer_quantity) - parseInt(obj.quantity)
+           },
            {name: '${quantity}',
              value: obj.offer_quantity
            },
+
            {name: '${author}',
              value: getFullName(obj.asset_data.subject_specification_data.person_data)
            },
@@ -94,8 +98,12 @@ const getParamsBuy = (obj)=>{
              value: obj.offer_quantity
            },
            {name: '${rest_quantity}',
+             value: obj.quantity
+           },
+           {name: '${sale_quantity}',
              value: parseInt(obj.offer_quantity) - parseInt(obj.quantity)
            },
+
 
            {name: '${author}',
              value: getFullName(obj.asset_data.subject_specification_data.person_data)
@@ -156,7 +164,7 @@ const loadBuy  = async (offer)=>
 
 const findOffer = (offers, offerUUID)=>
 {
-   return offers[0];
+   return offers.find(element => element.uuid == offerUUID);
 }
 
 const loadContent = async(offerUUID) =>
@@ -178,7 +186,5 @@ $(document).ready(function(){
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   let uuid = urlParams.get('uuid');
-  alert(uuid);
-
   loadContent(uuid);
 });
