@@ -69,7 +69,7 @@ const loadFundPCGallery = async (offers) =>
 {
   const formWork = await loadForm(templFundPCWork);
 
-  const content = offers.reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  const content = offers.slice(4).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
   $('.funds.pc>.container .wrapper').append(content);
 }
 
@@ -82,11 +82,12 @@ const loadFundPC  = async (offers)=>
   $('.funds.pc>.container').append(content);
   await loadFundPCGallery(offers);
 }
+
 const loadFundGallery = async (offers) =>
 {
   const formWork = await loadForm(templFundWork);
 
-  const content = offers.reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  const content = offers.slice(4).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
   $('.funds:not(.pc)>.container .wrapper').append(content);
 }
 
