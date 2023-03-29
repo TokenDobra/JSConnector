@@ -120,7 +120,8 @@ function runAfterCBerpSDKLoad(fncAfter) {
 }
 
 const fillParam = (form, param)=>{
-   return form.replace(param.name, param.value);
+   const result = form.replace(param.name, param.value);
+   return result.indexOf(param.name) < 0?result:fillParam(result, param);
 }
 const fillFormData = (form, params)=>{
    return params.reduce((tmpl, param)=>fillParam(tmpl, param), form);
