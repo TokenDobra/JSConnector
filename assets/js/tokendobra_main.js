@@ -106,7 +106,7 @@ const loadContent = async() =>
   if(!offers.length)
     return;
 
-//  await loadGallery(offers);
+  await loadGallery(offers);
   await loadFundPC(offers);
   await loadFund(offers);
 
