@@ -129,9 +129,13 @@ const fillFormData = (form, params)=>{
 
 const getFullName = (obj)=>
 {
-   return obj.first_name 
-        + (obj.middle_name !== '')?' ' + obj.middle_name:'' 
-        + (obj.last_name !== '')?' ' + obj.last_name:''; 
+   const name =  obj.first_name;
+   if(obj.middle_name !== '')
+     name += ' ' + obj.middle_name;
+   if(obj.last_name !== '')
+     name += ' ' + obj.last_name;
+   return name;
+
 }                                                                                                               
 
 $(document).ready(function(){
