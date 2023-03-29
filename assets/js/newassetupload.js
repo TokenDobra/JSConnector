@@ -1,4 +1,0 @@
-
-$('purpleUpload').ready(function(){
-})
-
