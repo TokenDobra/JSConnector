@@ -62,7 +62,7 @@ const getParamsFund = (obj) => {
              value: obj.offer_quantity
            },
            {name: '${fund_url}',
-             value: obj.offer_quantity
+             value: 'fund'
            },
           ];
 }
