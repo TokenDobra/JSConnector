@@ -32,12 +32,12 @@ let getAssetsForms = function(source)
 let schemaData = {
      tokendobra_main: {
          product: {
-                    js: ['tokendobra_main.js']
+                    js: ['helper.js', 'tokendobra_main.js']
                   }
     },
     TDItem: {
          product: {
-                    js: ['tokendobra_item.js']
+                    js: ['helper.js', 'tokendobra_item.js']
                 }
     },
 
@@ -100,7 +100,6 @@ function loadedAll(tag, schema, representation, source)
 
 }
 
-
 function runAfterCBerpSDKLoad(fncAfter) {
     setTimeout(function () {
         var loadScript=true;
@@ -108,7 +107,7 @@ function runAfterCBerpSDKLoad(fncAfter) {
             if (typeof window.CBerpSDK == 'undefined') {
                 /* jQuery is not loaded */
                 loadScript=false;
-                runAfterCBerpLoad();
+                runAfterCBerpSDKLoad(fncAfter);
             }else{
                 /* jQuery is loaded */
             }
@@ -119,12 +118,23 @@ function runAfterCBerpSDKLoad(fncAfter) {
     }, 500);
 }
 
+const fillParam = (form, param)=>{
+   return form.replace(param.name, param.value);
+}
+const fillFormData = (form, params)=>{
+   return params.reduce((tmpl, param)=>fillParam(tmpl, param), form);
+}
+
+const getFullName = (obj)=>
+{
+   return obj.first_name 
+        + (obj.middle_name !== '')?' ' + obj.middle_name:'' 
+        + (obj.last_name !== '')?' ' + obj.last_name:''; 
+}                                                                                                               
 
 $(document).ready(function(){
 
   const source = $("tokendobra").attr('source');
-  dataSource.api = $("tokendobra").attr('api');
-
   $('body').append('<script src="' + getAssetsJs(dataSource.url) + 'berpSDK.js' + '"></script>');
   runAfterCBerpSDKLoad(()=>
   {
