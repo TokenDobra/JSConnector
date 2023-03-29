@@ -128,7 +128,7 @@ const loadFundPC  = async (offers)=>
   const formFundPC = await loadForm(templFundPC);
   const content = fillFormData(formFundPC, getParamsFund(offers[0]));
   $('.funds.pc>.container').append(content);
-//  await loadFundPCGallery(offers);
+  await loadFundPCGallery(offers);
 }
 
 const loadFundGallery = async (offers) =>
