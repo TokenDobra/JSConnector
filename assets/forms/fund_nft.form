@@ -1,0 +1,21 @@
+            <p class="title">Фонды</p>
+            <div class="fund">
+                <div class="content">
+                    <div onclick="location.href='fund'" class="description">
+                        <img src="${avatar}" alt="" class="logo">
+                        <div class="head">
+                           <p>${name}</p>
+                           <p>${assets} картин | ${nft} NFT</p>
+                        </div>
+                        <div class="story">
+                            <p class="story">Какой-то рассказ о фонде рассказ о фонде рассказ о фонде рассказ о фонде
+                                рассказ о фонде рассказ о фонде рассказ о фонде рассказ. <a href="">Подробнее</a></p>
+                        </div>
+                    </div>
+                    <div class="nft-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
+                        <div class="wrapper swiper-wrapper" id="swiper-wrapper-31016109f045137ebc" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(-824px, 0px, 0px);">
+                        </div>
+                    </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                </div>
+            </div>

@@ -1,0 +1,20 @@
+            <p class="title">Другие картины из этого фонда</p>
+            <div class="fund">
+                <div class="content">
+                    <div onclick="location.href='fund'" class="description">
+                        <img src="${url}" alt="" class="logo">
+                        <div class="head">
+                            <p>${name}</p>
+                            <p>${assets} картин | ${nft} NFT</p>
+                        </div>
+                        <div class="story">
+                            <p class="story">Какой-то рассказ о фонде рассказ о фонде рассказ о фонде рассказ о фонде
+                                рассказ о фонде рассказ о фонде рассказ о фонде рассказ. <a href="">Подробнее</a></p>
+                        </div>
+                    </div>
+                    <div class="nft-slider">
+                        <div class="wrapper">
+                        </div>
+                     </div>
+                </div>
+            </div>

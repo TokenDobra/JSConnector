@@ -9,10 +9,9 @@ const templFundPCWork = 'fund_pc_work.form';
 
 
 
-
 const getParams = (obj)=>{
     return [{name: '${url_work}',
-             value: ''
+             value: dataSource.item_page + obj.uuid
            },
            {name: '${image_asset}',
              value: obj.link_address

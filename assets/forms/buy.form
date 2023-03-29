@@ -1,0 +1,158 @@
+                    <div onclick="location.href='${url_work}'" class="item-nft">
+                        <div class="bg"></div>
+                        <img src="${image_asset}"
+                            alt="">
+                        <div class="tips">
+                            <span class="tool"
+                                data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
+                                <p class="tip">pre-NFT</p>
+                            </span>
+                            <span class="tool"
+                                data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
+                                <p class="tip">картина</p>
+                            </span>
+                        </div>
+                        <div class="info">
+                            <p class="name">${asset_name}</p>
+                            <div class="stats">
+                                <p class="price">${asset_price} ₽</p>
+                                <span
+                                    data-tool="Эта картина оцифрована в количестве 100 токенов. 1 токенов по цене 1000 ₽ и 1 токен по цене 30 000 ₽."
+                                    class="tool">
+                                    <p class="count tip2"><span class="nft-quantity">${current_quantity}</span> / ${quantity}</p>
+                                </span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="bar"></div>
+                            </div>
+                            <p class="tip">${author}</p>
+                        </div>
+                    </div>
+
+${asset_name}
+${author}
+${fund_name}
+${current_quantity}
+${asset_price}
+${rest_quantity} - осталось
+${physic_quantity}
+            <div class="left-side">
+                <p class="head">${asset_name}</p>
+                <div class="head-info">
+                    <div class="author">
+                        <p>Автор</p>
+                        <p>${author}</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="fund-name">
+                        <p>Фонд</p>
+                        <p>${fund_name}</p>
+                    </div>
+                </div>
+                <div class="sold">
+                    <p>Продано <span>${current_quantity}</span> / ${quantity} pre-NFT</p>
+                    <div class="progress-bar"><div class="bar"></div></div>
+                </div>
+                <div class="right-side phone">
+                    <div class="question"></div>
+                    <div class="answer">Подсказка объясняющая что такое pre-NFT, а что такое pre-NFT + оригинал картины
+                    </div>
+                    <div class="head">
+                        <p class="price">${asset_price} ₽</p>
+                        <p class="how-many-left">Осталось ${rest_quantity} шт.</p>
+                    </div>
+                    <div class="dropdown">
+                        <div class="select">
+                            <span class="selected mob">pre-NFT</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li>1 pre-NFT и 1 картина</li>
+                        </ul>
+                    </div>
+                    <div class="quantity">
+                        <p><span id="nft-quantity-mob">1</span> pre-NFT</p>
+                        <div class="plus-minus">
+                            <button class="plus-mob">
+                                <img src="https://raw.githubusercontent.com/jamb17/token-dobra/e153865a99125d210949fc653431b3b3a3e491f8/%2B.svg"
+                                    alt="">
+                            </button>
+                            <a class="minus-mob">
+                                <div class="icon"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <a id="buy-button" href="#order:NFT =${asset_price}:::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png" class="btn-black">Купить</a>
+                    <div class="hyper-links">
+                        <P class="hyper-link one">Что такое pre-NFT?</P>
+                        <P class="hyper-link two">Как обменять pre-NFT на NFT?</P>
+                    </div>
+                </div>
+                <div class="info">
+                    <p>Вырученные средства пойдут на организацию художественного кружка в «Центре проблем аутизма»,
+                        покупку художественных принадлежностей и оплату работы приглашённых инклюзивных преподавателей.
+                    </p>
+                    <p>Распределение вырученных средств от картины: </p>
+                    <ul>
+                        <li>75% - от первичной продажи уходит в фонд</li>
+                        <li>15% - от первичной продажи уходит в галерею</li>
+                        <li>5% - заложено в NFT в качестве роялти при вторичной перепродаже NFT</li>
+                    </ul>
+                </div>
+                <div class="divider"></div>
+                <div class="links">
+                    <div class="link">
+                        <img src="https://raw.githubusercontent.com/jamb17/token-dobra/810f17e05a66d2cb9c160ef27f43de06cae2e448/icon.svg"
+                            alt="">
+                        <p>Смотреть на IPFS</p>
+                    </div>
+                    <div class="link">
+                        <img src="https://raw.githubusercontent.com/jamb17/token-dobra/067376a4af3175781ce85045c72215b2139086c5/icon%202.svg"
+                            alt="">
+                        <p>Смотреть метаданные</p>
+                    </div>
+                    <div class="link">
+                        <img src="https://raw.githubusercontent.com/jamb17/token-dobra/067376a4af3175781ce85045c72215b2139086c5/icon%203.svg"
+                            alt="">
+                        <p>Смотреть на Etherscan</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="right-side">
+                <div class="question"></div>
+                <div class="answer">Подсказка объясняющая что такое pre-NFT, а что такое pre-NFT + оригинал картины
+                </div>
+                <div class="head">
+                    <p class="price">${asset_price} ₽</p>
+                    <p class="how-many-left">Осталось ${rest_quantity} шт.</p>
+                </div>
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="selected pc">pre-NFT</span>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="menu">
+                        <li>1 pre-NFT и 1 картина</li>
+                    </ul>
+                </div>
+                <div class="quantity">
+                    <p><span id="nft-quantity">1</span> pre-NFT</p>
+                    <div class="plus-minus">
+                        <button class="plus">
+                            <img src="https://raw.githubusercontent.com/jamb17/token-dobra/e153865a99125d210949fc653431b3b3a3e491f8/%2B.svg"
+                                alt="">
+                        </button>
+                        <a class="minus">
+                            <div class="icon"></div>
+                        </a>
+                    </div>
+                </div>
+                <a id="buy-button" href="#order:NFT =${asset_price}:::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png" class="btn-black">Купить</a>
+                <div class="hyper-links">
+                    <P class="hyper-link pc">Что такое pre-NFT?</P>
+                    <P class="hyper-link pc">Как обменять pre-NFT на NFT?</P>
+                </div>
+            </div>

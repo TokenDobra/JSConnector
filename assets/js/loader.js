@@ -1,7 +1,8 @@
 
 let dataSource = {
   api:'https://api.tokendobra.ru',
-  url:'https://tilda.tokendobra.ru'
+  url:'https://tilda.tokendobra.ru',
+  item_page: './nft-page?uuid='
 }
 
 let isLocalHost = function()
@@ -35,7 +36,7 @@ let schemaData = {
                     js: ['tokendobra_main.js']
                   }
     },
-    TDItem: {
+    tokendobra_item: {
          product: {
                     js: ['tokendobra_item.js']
                 }
