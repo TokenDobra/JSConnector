@@ -43,6 +43,12 @@ let schemaData = {
                     js: ['tokendobra_item.js']
                 }
     },
+    tokendobra_fund: {
+         product: {
+                    js: ['tokendobra_fund.js']
+                }
+    },
+
 
 }
 const loadForm = async (name)=>{
