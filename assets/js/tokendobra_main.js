@@ -71,7 +71,7 @@ const loadFundPCGallery = async (offers) =>
 {
   const formWork = await loadForm(templFundPCWork);
 
-  const content = offers.slice(0,4).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  const content = offers.reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
   $('.funds.pc>.container .wrapper').append(content);
 }
 
