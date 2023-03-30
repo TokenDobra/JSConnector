@@ -15,10 +15,10 @@ const templFundPCWork = 'fund_nft_work_pc.form';
 const templPicture = 'picture.form';
 const templBuy = 'buy.form';
 
-let price = 0;
-let price_physic = 0;
-let max_quantity_physic = 0;
-let max_quantity = 0;
+let nft_price = 0;
+let nft_price_physic = 0;
+let nft_max_quantity_physic = 0;
+let nft_max_quantity = 0;
 
 const getParams = (obj)=>{
     return [{name: '${url_work}',
@@ -179,10 +179,10 @@ const loadContent = async(offerUUID) =>
     return;
   const offer = findOffer(offers, offerUUID);
 
-  price = parseInt(offer.price);
-  max_quantity = parseInt(offer.quantity);
-  price_physic = parseInt(offer.physic_price);
-  max_quantity_physic = parseInt(offer.physic_quantity);
+  nft_price = parseInt(offer.price);
+  nft_max_quantity = parseInt(offer.quantity);
+  nft_price_physic = parseInt(offer.physic_price);
+  nft_max_quantity_physic = parseInt(offer.physic_quantity);
 
 
   await loadPicture(offer);
@@ -358,7 +358,7 @@ dropdowns.forEach(dropdown => {
   max_quantity_physic = parseInt(offer.physic_quantity);
 */
 
-    if(max_quantity_physic == 0)
+    if(nft_max_quantity_physic == 0)
     {
        //Нет физической картины
        select.addEventListener('click', () => {
