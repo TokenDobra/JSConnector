@@ -23,7 +23,7 @@
                                 </span>
                             </div>
                             <div class="progress-bar">
-                                <div class="bar"></div>
+                                <div class="bar" style="width: ${progress}%;"></div>
                             </div>
                             <p class="tip">${author}</p>
                         </div>

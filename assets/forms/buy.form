@@ -13,7 +13,7 @@
                 </div>
                 <div class="sold">
                     <p>Продано <span>${sale_quantity}</span> / ${quantity} pre-NFT</p>
-                    <div class="progress-bar"><div class="bar"></div></div>
+                    <div class="progress-bar"><div class="bar" style="width: ${progress}%;"></div></div>
                 </div>
                 <div class="right-side phone">
                     <div class="question"></div>

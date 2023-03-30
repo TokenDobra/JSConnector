@@ -19,7 +19,7 @@
                                             <p class="price">${asset_price} ₽</p>
                                             <p class="tip">${author}</p>
                                         </div>
-                                        <div class="progress-bar"><div class="bar"></div></div>
+                                        <div class="progress-bar"><div class="bar" style="width: ${progress}%;"></div></div>
                                         <span
                                             data-tool="Эта картина оцифрована в количестве 100 токенов. 1 токенов по цене 1000 ₽ и 1 токен по цене 30 000 ₽."
                                             class="tool">
