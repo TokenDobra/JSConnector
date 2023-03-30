@@ -5,12 +5,10 @@ const loadContent = async() =>
   if(!offers.length)
     return;
 
-  await loadGallery(offers);
 }
 
 $(document).ready(function(){
 //   loadContent();
-
-console.log('Tilda', Tilda); 
+console.log('tcart', window.tcart); 
 });
           
