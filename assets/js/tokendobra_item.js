@@ -324,8 +324,8 @@ const postLoadingScript = ()=>{
 
     const dropdowns = document.querySelectorAll('.dropdown');
 
+    var price = $('.price');
 /*
- //var price = $('.price');
     if(max_quantity_physic > 0)
     {
        const options = dropdown.querySelectorAll('.menu li');
@@ -351,14 +351,8 @@ dropdowns.forEach(dropdown => {
     const first_option = 'pre-NFT';
     const second_option = '1 pre-NFT и 1 картина';
 
-/*
-  price = parseInt(offer.price);
-  max_quantity = parseInt(offer.quantity);
-  price_physic = parseInt(offer.physic_price);
-  max_quantity_physic = parseInt(offer.physic_quantity);
-*/
 
-    if(nft_max_quantity_physic == 0)
+    if(nft_max_quantity_physic != 0)
     {
        //Нет физической картины
        select.addEventListener('click', () => {
@@ -373,21 +367,29 @@ dropdowns.forEach(dropdown => {
                 selected.innerText = first_option;
                 option.innerText = second_option;
                 if($(window).width() < 770) {
-                    var y = 1500 * Number(nft_quantity_mob.innerText);
+                    var y = nft_price * Number(nft_quantity_mob.innerText);
                     price.text(y + ' ₽');    
                 } else {
-                    var y = 1500 * Number(nft_quantity.innerText);
+                    var y = nft_price * Number(nft_quantity.innerText);
                     price.text(y + ' ₽');    
                 }
             } else {
                 selected.innerText = second_option;
                 option.innerText = first_option;
+
+                
+                price.text(nft_price_physic + ' ₽');    
+
+
                 if($(window).width() < 770) {
-                    var y = 3000 * Number(nft_quantity_mob.innerText);
-                    price.text(y + ' ₽');    
+                    nft_quantity_mob.innerText = '1';
+//                    var y = 3000 * Number(nft_quantity_mob.innerText);
+//                    price.text(y + ' ₽');    
                 } else {
-                    var y = 3000 * Number(nft_quantity.innerText);
-                    price.text(y + ' ₽');    
+                    nft_quantity.innerText = '1';
+
+//                    var y = 3000 * Number(nft_quantity.innerText);
+//                    price.text(y + ' ₽');    
                 }
             };
             select.classList.remove('open');
@@ -408,18 +410,27 @@ $('.plus').click(function() {
     var selected = $('.selected.pc').text();
     var selected_text = 'pre-NFT';
     i = Number(nft_quantity.innerText);
-    if(i < 100) {
-        if(i < 100 && selected == selected_text) {
-            i++;
-            nft_quantity.innerText = i;
-            var x = 1500 * Number(nft_quantity.innerText);
-            price.text(x + ' ₽');
-        } else {
-            i++;
-            nft_quantity.innerText = i;
-            var y = 3000 * Number(nft_quantity.innerText);
-            price.text(y + ' ₽');
-        }
+
+
+    if(selected == selected_text)
+    {
+      if(i < nft_max_quantity)
+      {
+         i++;
+         nft_quantity.innerText = i;
+         var x = nft_price * Number(nft_quantity.innerText);
+         price.text(x + ' ₽');
+      }
+    }
+    else
+    {
+       if(i < nft_max_quantity_physic)
+       {
+         i++;
+         nft_quantity.innerText = i;
+         var x = nft_price_physic * Number(nft_quantity.innerText);
+         price.text(x + ' ₽');
+       }
     }
     $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
 });
@@ -434,13 +445,13 @@ $('.minus').click(function() {
         if(selected == selected_text) {
             i--;
             nft_quantity.innerText = i;
-            var x = 1500 * Number(nft_quantity.innerText);
+            var x = nft_price * Number(nft_quantity.innerText);
             price.text(x + ' ₽');
         } else {
             i--;
             nft_quantity.innerText = i;
-            var y = 3000 * Number(nft_quantity.innerText);
-            price.text(y + ' ₽');
+            var y = nft_price_physic * Number(nft_quantity.innerText);
+            price.text(0 + ' ₽');
         }
     }   
     $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
@@ -452,18 +463,25 @@ $('.plus-mob').click(function() {
     i = Number(nft_quantity.innerText);
     var selected = $('.selected.mob').text();
     var selected_text = 'pre-NFT';
-    if(i < 100) {
-        if(i < 100 && selected == selected_text) {
-            i++;
-            nft_quantity.innerText = i;
-            var x = 1500 * Number(nft_quantity.innerText);
-            price.text(x + ' ₽');
-        } else {
-            i++;
-            nft_quantity.innerText = i;
-            var y = 3000 * Number(nft_quantity.innerText);
-            price.text(y + ' ₽');
-        }
+    if(selected == selected_text)
+    {
+      if(i < nft_max_quantity)
+      {
+         i++;
+         nft_quantity.innerText = i;
+         var x = nft_price * Number(nft_quantity.innerText);
+         price.text(x + ' ₽');
+      }
+    }
+    else
+    {
+       if(i < nft_max_quantity_physic)
+       {
+         i++;
+         nft_quantity.innerText = i;
+         var x = nft_price_physic * Number(nft_quantity.innerText);
+         price.text(x + ' ₽');
+       }
     }
     $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
 });
@@ -478,12 +496,12 @@ $('.minus-mob').click(function() {
         if(selected == selected_text) {
             i--;
             nft_quantity.innerText = i;
-            var x = 1500 * Number(nft_quantity.innerText);
+            var x = nft_price * Number(nft_quantity.innerText);
             price.text(x + ' ₽');
         } else {
             i--;
             nft_quantity.innerText = i;
-            var y = 3000 * Number(nft_quantity.innerText);
+            var y = nft_price_physic * Number(nft_quantity.innerText);
             price.text(y + ' ₽');
         }
     }  
