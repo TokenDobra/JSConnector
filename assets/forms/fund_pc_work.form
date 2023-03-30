@@ -13,7 +13,7 @@
                                     </span>
                                 </div>
                                 <div class="bottom">
-                                    <p class="name">Дино</p>
+                                    <p class="name">${asset_name}</p>
                                     <div class="info">
                                         <div class="stats">
                                             <p class="price">${asset_price} ₽</p>

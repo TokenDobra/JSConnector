@@ -39,6 +39,7 @@ let schemaData = {
     },
     tokendobra_item: {
          product: {
+                    sdk:['https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'],
                     js: ['tokendobra_item.js']
                 }
     },
