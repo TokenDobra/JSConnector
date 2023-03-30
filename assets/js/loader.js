@@ -34,18 +34,18 @@ let schemaData = {
      tokendobra_main: {
          product: {
                     sdk:['https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'],
-                    js: ['tokendobra_main.js']
+                    js: ['tokendobra_cart.js', 'tokendobra_main.js']
                   }
     },
     tokendobra_item: {
          product: {
                     sdk:['https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'],
-                    js: ['tokendobra_item.js']
+                    js: ['tokendobra_cart.js','tokendobra_item.js']
                 }
     },
     tokendobra_fund: {
          product: {
-                    js: ['tokendobra_fund.js']
+                    js: ['tokendobra_cart.js','tokendobra_fund.js']
                 }
     },
     tokendobra_cart: {
