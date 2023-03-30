@@ -48,6 +48,12 @@ let schemaData = {
                     js: ['tokendobra_fund.js']
                 }
     },
+    tokendobra_cart: {
+         product: {
+                    js: ['tokendobra_cart.js']
+                }
+    },
+
 
 
 }
