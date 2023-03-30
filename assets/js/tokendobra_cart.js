@@ -10,5 +10,7 @@ const loadContent = async() =>
 
 $(document).ready(function(){
 //   loadContent();
+
+console.log('Tilda', Tilda); 
 });
           
