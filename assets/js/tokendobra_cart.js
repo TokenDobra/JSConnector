@@ -1,4 +1,4 @@
-const 
+
 $(document).ready(function(){
 //   loadContent();
 
