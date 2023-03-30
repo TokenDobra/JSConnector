@@ -29,7 +29,7 @@ const getParams = (obj)=>{
              value: parseInt(obj.offer_quantity) - parseInt(obj.quantity)
            },
            {name: '${progress}',
-             value: 10//100*(parseInt(obj.offer_quantity) - parseInt(obj.quantity))/parseInt(obj.offer_quantity)
+             value: 100*(parseInt(obj.offer_quantity) - parseInt(obj.quantity))/parseInt(obj.offer_quantity)
            },
            ];
 }
