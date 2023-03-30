@@ -323,10 +323,8 @@ const postLoadingScript = ()=>{
     // dropdown
 
     const dropdowns = document.querySelectorAll('.dropdown');
-    const first_option = 'pre-NFT';
-    const second_option = '1 pre-NFT и 1 картина';
 
-
+/*
  //var price = $('.price');
     if(max_quantity_physic > 0)
     {
@@ -339,7 +337,7 @@ const postLoadingScript = ()=>{
            }
        })
     }
-
+*/
 
 
 dropdowns.forEach(dropdown => {
@@ -350,6 +348,9 @@ dropdowns.forEach(dropdown => {
     const selected = dropdown.querySelector('.selected');
     var nft_quantity = document.getElementById('nft-quantity');
     var nft_quantity_mob = document.getElementById('nft-quantity-mob');
+    const first_option = 'pre-NFT';
+    const second_option = '1 pre-NFT и 1 картина';
+
 /*
   price = parseInt(offer.price);
   max_quantity = parseInt(offer.quantity);
@@ -357,12 +358,15 @@ dropdowns.forEach(dropdown => {
   max_quantity_physic = parseInt(offer.physic_quantity);
 */
 
-
-    select.addEventListener('click', () => {
-        select.classList.toggle('open');
-        caret.classList.toggle('rotate');
-        menu.classList.toggle('open');
-    });
+    if(max_quantity_physic == 0)
+    {
+       //Нет физической картины
+       select.addEventListener('click', () => {
+          select.classList.toggle('open');
+          caret.classList.toggle('rotate');
+          menu.classList.toggle('open');
+       });   
+    }
     options.forEach(option => {
         option.addEventListener('click', () => {
             if(selected.innerText != first_option) {
