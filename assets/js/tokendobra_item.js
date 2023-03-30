@@ -135,7 +135,7 @@ const loadFundGallery = async (offers) =>
 {
   const formWork = await loadForm(templFundWork);
 
-  const content = offers.reverse().slice(0,4).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  const content = offers.reverse().reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
   $('.funds:not(.pc)>.container .wrapper').append(content);
 }
 
@@ -144,7 +144,7 @@ const loadFund  = async (offers)=>
   const formFund = await loadForm(templFund);
   const content = fillFormData(formFund, getParamsFund(offers[0]));
   $('.funds:not(.pc)>.container').append(content);
-//  await loadFundGallery(offers);
+  await loadFundGallery(offers);
 }
 
 const loadPicture  = async (offer)=>
