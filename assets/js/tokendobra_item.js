@@ -201,7 +201,7 @@ const postLoadingScript = ()=>{
       });
       let count = Number($('.item-nft:nth-child(2) .info .stats span').text());
       let width = count * 0.1;
-
+/*
     $('.funds.pc .item-nft').hover(function() {
         var $this = $(this);
         var tips = $this.children('.tips');
@@ -210,8 +210,19 @@ const postLoadingScript = ()=>{
         tips.children('.tip').toggleClass('hover');
         name.children('.name').toggleClass('hover');
     });
+*/
+  $('.funds.pc .item-nft').hover(function() {
+      var $this = $(this);
+      var tips = $this.children('.tips');
+      var name = $this.children('.bottom');
+      var bg = $this.children('.bg');
+      $this.toggleClass('hover');
+      tips.children('.tip').toggleClass('hover');
+      name.children('.name').toggleClass('hover');
+      bg.toggleClass('active');
+   });
 
-      document.querySelector('.status').style.width = width + '%';
+//      document.querySelector('.status').style.width = width + '%';
 
     // open pop up
     $('#open').click(function() {

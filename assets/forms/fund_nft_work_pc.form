@@ -1,4 +1,4 @@
-                            <div class="item-nft">
+                            <div onclick="location.href='${url_work}'" class="item-nft">
                                 <div class="bg"></div>
                                 <img src="${image_asset}" alt="">
                                 <div class="tips">
