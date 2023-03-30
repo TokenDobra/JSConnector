@@ -33,6 +33,7 @@ let getAssetsForms = function(source)
 let schemaData = {
      tokendobra_main: {
          product: {
+                    sdk:['https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'],
                     js: ['tokendobra_main.js']
                   }
     },
