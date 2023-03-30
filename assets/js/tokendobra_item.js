@@ -15,6 +15,11 @@ const templFundPCWork = 'fund_nft_work_pc.form';
 const templPicture = 'picture.form';
 const templBuy = 'buy.form';
 
+let price = 0;
+let price_physic = 0;
+let max_quantity_physic = 0;
+let max_quantity = 0;
+
 const getParams = (obj)=>{
     return [{name: '${url_work}',
              value: dataSource.item_page + obj.uuid
@@ -173,6 +178,13 @@ const loadContent = async(offerUUID) =>
   if(!offers.length)
     return;
   const offer = findOffer(offers, offerUUID);
+
+  price = parseInt(offer.price);
+  max_quantity = parseInt(offer.quantity);
+  price_physic = parseInt(offer.physic_price);
+  max_quantity_physic = parseInt(offer.physic_quantity);
+
+
   await loadPicture(offer);
   await loadBuy(offer);
 
@@ -310,8 +322,25 @@ const postLoadingScript = ()=>{
     
     // dropdown
 
-const dropdowns = document.querySelectorAll('.dropdown');
-var price = $('.price');
+    const dropdowns = document.querySelectorAll('.dropdown');
+    const first_option = 'pre-NFT';
+    const second_option = '1 pre-NFT и 1 картина';
+
+
+ //var price = $('.price');
+    if(max_quantity_physic > 0)
+    {
+       const options = dropdown.querySelectorAll('.menu li');
+       options.forEach(option => {
+           if(option.innerText == second_option)
+           {
+               const parent = h1.parentNode
+               option.removeChild(h1)
+           }
+       })
+    }
+
+
 
 dropdowns.forEach(dropdown => {
     const select = dropdown.querySelector('.select');
@@ -319,10 +348,15 @@ dropdowns.forEach(dropdown => {
     const menu = dropdown.querySelector('.menu');
     const options = dropdown.querySelectorAll('.menu li');
     const selected = dropdown.querySelector('.selected');
-    const first_option = 'pre-NFT';
-    const second_option = '1 pre-NFT и 1 картина';
     var nft_quantity = document.getElementById('nft-quantity');
     var nft_quantity_mob = document.getElementById('nft-quantity-mob');
+/*
+  price = parseInt(offer.price);
+  max_quantity = parseInt(offer.quantity);
+  price_physic = parseInt(offer.physic_price);
+  max_quantity_physic = parseInt(offer.physic_quantity);
+*/
+
 
     select.addEventListener('click', () => {
         select.classList.toggle('open');
