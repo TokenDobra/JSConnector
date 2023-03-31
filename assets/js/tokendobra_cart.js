@@ -22,7 +22,7 @@ const addTokenToCart = (token)=>
 {
    window.tcart.amount += token.amount;
    window.tcart.prodamount += token.amount;
-   window.tcart.total += quantity;
+   window.tcart.total += token.quantity;
    if(window.tcart.products == undefined)
      window.tcart.products = [];
    window.tcart.products.push(token);
