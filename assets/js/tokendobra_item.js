@@ -19,7 +19,6 @@ let nft_price = 0;
 let nft_price_physic = 0;
 let nft_max_quantity_physic = 0;
 let nft_max_quantity = 0;
-
 const getParams = (obj)=>{
     return [{name: '${url_work}',
              value: dataSource.item_page + obj.uuid
@@ -533,6 +532,10 @@ $('.minus-mob').click(function() {
     })
     
     $('.buy .btn-black').click(function () {
+//       const token = buildToken('nft test', 1000, 5, 'https://wallpapershome.ru/images/pages/pic_v/21485.jpg', 'hjhjh__jkjkk-hhhh543');
+//       addTokenToCart(token);
+
+
         var prod_quantity = $('.t706__product-quantity').text(); 
         var nft_quantity =  $('#nft-quantity').text();
         prod_quantity = nft_quantity;
