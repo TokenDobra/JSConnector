@@ -636,8 +636,8 @@ $('.minus-mob').click(function() {
         })
     })
 
-    
     $('#buy-button').click(function () {
+         alert('#buy-button');
          const token = getToken(asset);
          addTokenToCart(token);
 
@@ -647,5 +647,6 @@ $('.minus-mob').click(function() {
         prod_quantity = nft_quantity;
     });
 
+    
 
 }
