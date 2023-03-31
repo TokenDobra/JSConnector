@@ -50,7 +50,7 @@ const addTokenToCart = (token)=>
    tcart__updateTotalProductsinCartObj();
    tcart__reDrawCartIcon();
    tcart__updateProductsPrice();
-   data = syncCartToOffer('test', window.tcart);
+   data = berpSDK.api.syncCartToOffer('test', window.tcart);
 }
 const getRecID = ()=>
 {
