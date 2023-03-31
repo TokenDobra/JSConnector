@@ -43,7 +43,6 @@ const CBerpAPI = class
                                                 },
                                        body: JSON.stringify(data)
                                      });
-         const response = await fetch(url);
          const result = await response.json();
          console.log(result);
          if(!result.ok)
