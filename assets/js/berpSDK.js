@@ -78,12 +78,14 @@ const CBerpAPI = class
     
       this.cartToOffer(email, cart).then(data=>{
         wait = false;
+        result = data;
         alert(data.uuid);
       }).catch((e)=>{
          console.log(e);
          alert('error')
       });
-      setTimeout (()=>{}, 10000);
+      return result;
+//      setTimeout (()=>{}, 10000);
    }
 }
 
