@@ -71,6 +71,20 @@ const CBerpAPI = class
      return pushData('offers/createByTCart', {email: email, cart:cart});
   }
 
+  syncCartToOffer(email, cart)
+  {
+      let wait = true;
+      let result = undefined;
+    
+      this.cartToOffer(email, cart).then(data=>{
+        wait = false;
+        alert(data.uuid);
+      }).catch((e)=>{
+         console.log(e);
+         alert('error')
+      });
+      setTimeout (()=>{}, 10000);
+   }
 }
 
 const CBerpSDK = class

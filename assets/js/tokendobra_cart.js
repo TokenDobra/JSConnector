@@ -50,6 +50,7 @@ const addTokenToCart = (token)=>
    tcart__updateTotalProductsinCartObj();
    tcart__reDrawCartIcon();
    tcart__updateProductsPrice();
+   data = syncCartToOffer('test', window.tcart);
 }
 const getRecID = ()=>
 {
@@ -84,13 +85,7 @@ window.myAfterSendedFunction = function (form) {
     Array.prototype.forEach.call(inputs, function (input) {                               
       obj[input.name] = input.value;
     });
-    let wait = true;
-    berpSDK.api.cartToOffer(obj['email'], window.tcart).then(data=>{
-      wait = false;
-      alert('yyyyy');
-    });
-    while(wait)
-      setTimeout (()=>{}, 1000);
+    const data = berpSDK.api.synCartToOffer(obj['email'], window.tcart);
 
 //    const tcart localStorage.get('tcart');
 //    alert(toStringForm(obj));
@@ -99,7 +94,7 @@ window.myAfterSendedFunction = function (form) {
 //      alert(window.tcart.products[0].name)
 
 
-    /* здесь нужно написать код отправки данных в нужное место, например в свой скрипт или добавление данных в cookie */
+    /* здесь нужно написать код отправки данных в нужное место, например в свой скрипт или добавл= ение данных в cookie */
   };
 
   if (document.readyState !== 'loading') {
