@@ -35,17 +35,17 @@ const asset = {
   physic:false,
 }
 const setAsset = (offer)=>{
-  asset.offer       = offer.uuid;
-  asset.image = offer.link_address;
-  asset.name  = offer.asset_data.name;
-  asset.reg   = findRegistr(offer.registrs)
-  asset.reg_physic = findRegistrPhysic(offer.registrs)
-  asset.price =  parseInt(offer.price);
-  asset.price_physic =  parseInt(offer.physic_price);
-  asset.quantity: parseInt(offer.quantity)
-  asset.max_quantity_physic: parseInt(offer.physic_quantity);
-  asset.quantity: 1,
-  asset.quantity_physic: 0,
+  asset.offer               = offer.uuid;
+  asset.image               = offer.link_address;
+  asset.name                = offer.asset_data.name;
+  asset.reg                 = findRegistr(offer.registrs);
+  asset.reg_physic          = findRegistrPhysic(offer.registrs);
+  asset.price               =  parseInt(offer.price);
+  asset.price_physic        =  parseInt(offer.physic_price);
+  asset.quantity            =  parseInt(offer.quantity);
+  asset.max_quantity_physic =  parseInt(offer.physic_quantity);
+  asset.quantity            =  1;
+  asset.quantity_physic     =  0;
 }
 
 const isPhysic = (a) =>
