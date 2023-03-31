@@ -44,7 +44,7 @@
                             </a>
                         </div>
                     </div>
-                    <a id="buy-button" href="" class="btn-black">Купить</a>
+                    <a id="buy-button" href="#" class="btn-black">Купить</a>
                     <div class="hyper-links">
                         <P class="hyper-link one">Что такое pre-NFT?</P>
                         <P class="hyper-link two">Как обменять pre-NFT на NFT?</P>
@@ -114,7 +114,7 @@
                         </a>
                     </div>
                 </div>
-                <a id="buy-button" href="" class="btn-black">Купить</a>
+                <a id="buy-button" href="#" class="btn-black">Купить</a>
                 <div class="hyper-links">
                     <P class="hyper-link pc">Что такое pre-NFT?</P>
                     <P class="hyper-link pc">Как обменять pre-NFT на NFT?</P>
