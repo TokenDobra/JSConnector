@@ -637,7 +637,6 @@ $('.minus-mob').click(function() {
     })
 
     $('.buy .btn-black').click(function () {
-         alert('#buy-button');
          const token = getToken(asset);
          addTokenToCart(token);
 

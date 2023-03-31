@@ -17,7 +17,25 @@ const buildToken = (name, price, quantity, img, uuid)=>
             "amount":quantity*price,
             "ts":Date.now() 
           }
-}                   
+} 
+const findTokenIndex = (token)=>
+{
+  for(let pos in window.tcart.products)
+     if(window.tcart.products[pos].name == token.name && window.tcart.products[pos].part_uids[0] == token.part_uids[0])
+       return pos;
+
+}
+const addTokenItem = (token) =>
+{
+  const p = findTokenIndex(token);
+  if(p == undefined)
+  {
+    window.tcart.products[pos].push(token);
+    return;
+  }
+  window.tcart.products[p].quantity += token.quantity;
+  window.tcart.products[p].amount += token.amount;
+}
 const addTokenToCart = (token)=>
 {
    window.tcart.amount += token.amount;
@@ -25,7 +43,8 @@ const addTokenToCart = (token)=>
    window.tcart.total += token.quantity;
    if(window.tcart.products == undefined)
      window.tcart.products = [];
-   window.tcart.products.push(token);
+   addTokenItem(token);
+//   window.tcart.products.push(token);
    tcart__saveLocalObj();
    tcart__updateTotalProductsinCartObj();
    tcart__reDrawCartIcon();
