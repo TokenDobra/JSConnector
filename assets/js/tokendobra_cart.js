@@ -67,6 +67,7 @@ const toStringForm = (form)=>
    return strForm;
 }
 
+
 window.myAfterSendedFunction = function (form) {
     if (!form) return;
     if (form instanceof jQuery) {
@@ -83,9 +84,13 @@ window.myAfterSendedFunction = function (form) {
     Array.prototype.forEach.call(inputs, function (input) {                               
       obj[input.name] = input.value;
     });
+    let wait = true;
     berpSDK.api.cartToOffer(obj['email'], window.tcart).then(data=>{
-      alert(data.uuid);
+      wait = false;
+      alert('yyyyy');
     });
+    while(wait)
+      setTimeout (()=>{}, 1000);
 
 //    const tcart localStorage.get('tcart');
 //    alert(toStringForm(obj));
