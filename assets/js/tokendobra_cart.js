@@ -33,7 +33,7 @@ const addTokenItem = (token) =>
   const p = findTokenIndex(token);
   if(p == undefined)
   {
-    window.tcart.products[p].push(token);
+    window.tcart.products.push(token);
     return;
   }
   window.tcart.products[p].quantity += token.quantity;
