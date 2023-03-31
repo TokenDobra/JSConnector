@@ -68,7 +68,7 @@ const CBerpAPI = class
 
   async cartToOffer(email, cart)
   {
-     return pushData('offers/createByTCart', {email: email, cart:cart});
+     return this.pushData('offers/createByTCart', {email: email, cart:cart});
   }
 
   syncCartToOffer(email, cart)
