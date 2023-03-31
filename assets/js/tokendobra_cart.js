@@ -27,10 +27,13 @@ const findTokenIndex = (token)=>
 }
 const addTokenItem = (token) =>
 {
+  if(window.tcart.products == undefined)
+    window.tcart.products = [];
+
   const p = findTokenIndex(token);
   if(p == undefined)
   {
-    window.tcart.products[pos].push(token);
+    window.tcart.products[p].push(token);
     return;
   }
   window.tcart.products[p].quantity += token.quantity;
@@ -41,8 +44,6 @@ const addTokenToCart = (token)=>
    window.tcart.amount += token.amount;
    window.tcart.prodamount += token.amount;
    window.tcart.total += token.quantity;
-   if(window.tcart.products == undefined)
-     window.tcart.products = [];
    addTokenItem(token);
 //   window.tcart.products.push(token);
    tcart__saveLocalObj();
