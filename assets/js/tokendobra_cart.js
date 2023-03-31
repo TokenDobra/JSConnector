@@ -1,4 +1,4 @@
-const buildToken = (name, price, quantity, img, gen_uid)=>
+const buildToken = (name, price, quantity, img, uuid)=>
 {
    return { "name":  name,
             "price": price,
@@ -10,7 +10,7 @@ const buildToken = (name, price, quantity, img, gen_uid)=>
             "pack_x":"",
             "pack_y":"",
             "pack_z":"",
-            "part_uids":[""],
+            "part_uids":[uuid],
             "gen_uid":"",
             "url":"https://tokendobra.ru/nft-page",
             "quantity":quantity,
