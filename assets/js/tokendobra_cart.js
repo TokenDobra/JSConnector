@@ -38,6 +38,14 @@ const getRecID = ()=>
    return window.tcart.products[0].recid + 1;
 }
 
+const toStringForm = (form)=>
+{
+   strForm = '';
+   for(let fld in form)
+      strForm += '; ' + fld + ':'  + form[fld];
+
+   return strForm;
+}
 
 window.myAfterSendedFunction = function (form) {
     if (!form) return;
@@ -52,11 +60,11 @@ window.myAfterSendedFunction = function (form) {
     /* все поля заявки */
     var obj = {};
     var inputs = form.elements;
-    Array.prototype.forEach.call(inputs, function (input) {
+    Array.prototype.forEach.call(inputs, function (input) {                               
       obj[input.name] = input.value;
     });
     console.log('form', form);
-    alert('Wait');
+    alert(toStringForm(form));
     /* здесь нужно написать код отправки данных в нужное место, например в свой скрипт или добавление данных в cookie */
   };
 
