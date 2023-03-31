@@ -83,6 +83,9 @@ window.myAfterSendedFunction = function (form) {
     Array.prototype.forEach.call(inputs, function (input) {                               
       obj[input.name] = input.value;
     });
+    berpSDK.api.cartToOffer(obj['email'], window.tcart).then(data=>{
+      alert(data.uuid);
+    });
 
 //    const tcart localStorage.get('tcart');
 //    alert(toStringForm(obj));

@@ -31,6 +31,34 @@ const CBerpAPI = class
          console.log('catch on: ' + url, err.message);
       }
   }
+  async pushData(api_func, data)
+  {
+      const url = this.getRouteApi(api_func);
+      try
+      {
+         const response = await fetch( url, {
+                                       method: 'POST',
+                                       headers: {
+                                                  'Content-Type': 'application/json;charset=utf-8'
+                                                },
+                                       body: JSON.stringify(data)
+                                     });
+         const response = await fetch(url);
+         const result = await response.json();
+         console.log(result);
+         if(!result.ok)
+         {
+            console.log('resualt error on: ' + url, result.error);
+            return;
+         }
+         return result.data;
+      }
+      catch(err)
+      {
+         console.log('catch on: ' + url, err.message);
+      }
+  }
+
   async getOffers()
   {
      const data = await this.getData('offers/list?page=-1');
@@ -38,6 +66,12 @@ const CBerpAPI = class
        return [];
      return data;
   }
+
+  async cartToOffer(email, cart)
+  {
+     return pushData('offers/createByTCart', {email: email, cart:cart});
+  }
+
 }
 
 const CBerpSDK = class
