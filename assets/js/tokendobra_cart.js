@@ -63,8 +63,10 @@ window.myAfterSendedFunction = function (form) {
     Array.prototype.forEach.call(inputs, function (input) {                               
       obj[input.name] = input.value;
     });
-    console.log('form', form);
-    alert(toStringForm(form));
+    alert(toStringForm(obj));
+    alert(window.tcart.products.length);
+
+
     /* здесь нужно написать код отправки данных в нужное место, например в свой скрипт или добавление данных в cookie */
   };
 
