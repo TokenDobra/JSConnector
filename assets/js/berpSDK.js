@@ -57,6 +57,17 @@ const CBerpAPI = class
          console.log('catch on: ' + url, err.message);
       }
   }
+  syncPushData(api_func, data)
+  {
+      const url = this.getRouteApi(api_func);
+      var request = new XMLHttpRequest();
+      request.open('POST', url, false);  // `false` makes the request synchronous
+      request.send(JSON.stringify(data));
+      if (request.status === 200) {
+        console.log(request.responseText);
+        return request.responseText;
+      }
+  }
 
   async getOffers()
   {
@@ -75,17 +86,9 @@ const CBerpAPI = class
   {
       let wait = true;
       let result = undefined;
-    
-      this.cartToOffer(email, cart).then(data=>{
-        wait = false;
-        result = data;
-        alert(data.uuid);
-      }).catch((e)=>{
-         console.log(e);
-         alert('error')
-      });
-      return result;
-//      setTimeout (()=>{}, 10000);
+      const data = this.syncPushData('orders/createByTCart', {email: email, cart:cart});
+      console.log('sync', data);
+      return data;
    }
 }
 
