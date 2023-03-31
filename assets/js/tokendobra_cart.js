@@ -63,8 +63,12 @@ window.myAfterSendedFunction = function (form) {
     Array.prototype.forEach.call(inputs, function (input) {                               
       obj[input.name] = input.value;
     });
-    alert(toStringForm(obj));
+
+//    const tcart localStorage.get('tcart');
+//    alert(toStringForm(obj));
     alert(window.tcart.products.length);
+    if(window.tcart.products.length > 0)
+      alert(window.tcart.products[0].name)
 
 
     /* здесь нужно написать код отправки данных в нужное место, например в свой скрипт или добавление данных в cookie */
