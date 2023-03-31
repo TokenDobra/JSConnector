@@ -19,6 +19,76 @@ let nft_price = 0;
 let nft_price_physic = 0;
 let nft_max_quantity_physic = 0;
 let nft_max_quantity = 0;
+
+const asset = {
+  offer: '',
+  image: '',
+  name: '',
+  reg: '',
+  reg_physic: '',
+  price: 0,
+  price_physic: 0,
+  max_quantity_physic: 0,
+  max_quantity: 0,
+  quantity:0,
+  quantity_physic: 0,
+  physic:false,
+}
+const setAsset = (offer)=>{
+  asset.offer       = offer.uuid;
+  asset.image = offer.link_address;
+  asset.name  = offer.asset_data.name;
+  asset.reg   = findRegistr(offer.registrs)
+  asset.reg_physic = findRegistrPhysic(offer.registrs)
+  asset.price =  parseInt(offer.price);
+  asset.price_physic =  parseInt(offer.physic_price);
+  asset.quantity: parseInt(offer.quantity)
+  asset.max_quantity_physic: parseInt(offer.physic_quantity);
+  asset.quantity: 1,
+  asset.quantity_physic: 0,
+}
+
+const isPhysic = (a) =>
+{ 
+   return a.physic;
+}
+const setPhysic = (physic) =>
+{ 
+   asset.physic = physic;
+}
+const setQuantity = (quantity) =>
+{ 
+   if(isPhysic(asset))
+      asset.quantity_physic = quantity;
+    asset.quantity = quantity;
+}
+
+
+const getPriceAsset = (a)=>
+{
+   if(isPhysic(a))
+     return parseInt(a.price_physic);
+   return parseInt(a.price);
+}
+const getQuantityAsset = ()=>
+{
+   if(isPhysic(a))
+     return parseInt(a.quantity_physic);
+   return parseInt(a.quantity);
+}
+const getRegAsset = (a)=>
+{
+   if(isPhysic(a))
+     return parseInt(a.reg_physic);
+   return parseInt(a.reg);
+}
+const getToken = (a)=>
+{
+    return buildToken(a.name, getPriceAsset(a), getQuantityAsset(a), a.image, getRegAsset(a));
+}
+
+
+
 const getParams = (obj)=>{
     return [{name: '${url_work}',
              value: dataSource.item_page + obj.uuid
@@ -178,6 +248,22 @@ const findOffer = (offers, offerUUID)=>
    return offers.find(element => element.uuid == offerUUID);
 }
 
+const findRegistr = (registrs)=>
+{
+  const reg = registrs.find((el)=>el.resource_data.provider_data.name != 'Physically');
+  if(reg == undefined)
+    return '';
+  return reg.uuid;
+}
+const findRegistrPhysic = (registrs)=>
+{
+  const reg = registrs.find((el)=>el.resource_data.provider_data.name == 'Physically');
+  if(reg == undefined)
+    return '';
+  return reg.uuid;
+}
+
+
 const loadContent = async(offerUUID) =>
 {
   const offers = await berpSDK.api.getOffers();
@@ -189,6 +275,7 @@ const loadContent = async(offerUUID) =>
   nft_max_quantity = parseInt(offer.quantity);
   nft_price_physic = parseInt(offer.physic_price);
   nft_max_quantity_physic = parseInt(offer.physic_quantity);
+  setAsset(offer);
 
 
   await loadPicture(offer);
@@ -370,6 +457,8 @@ dropdowns.forEach(dropdown => {
     options.forEach(option => {
         option.addEventListener('click', () => {
             if(selected.innerText != first_option) {
+                setPhysic(false);
+
                 selected.innerText = first_option;
                 option.innerText = second_option;
                 if($(window).width() < 770) {
@@ -379,16 +468,23 @@ dropdowns.forEach(dropdown => {
                     var y = nft_price * Number(nft_quantity.innerText);
                     price.text(y + ' ₽');    
                 }
+                setQuantity(1);
+
             } else {
+                setPhysic(true);
                 selected.innerText = second_option;
                 option.innerText = first_option;
 
+
                 
                 price.text(nft_price_physic + ' ₽');    
+                setQuantity(1);
 
 
                 if($(window).width() < 770) {
                     nft_quantity_mob.innerText = '1';
+
+
 //                    var y = 3000 * Number(nft_quantity_mob.innerText);
 //                    price.text(y + ' ₽');    
                 } else {
@@ -401,7 +497,7 @@ dropdowns.forEach(dropdown => {
             select.classList.remove('open');
             caret.classList.remove('rotate');
             menu.classList.remove('open');
-            $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
+//            $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
             options.forEach(option => {
                 option.classList.remove('open');
             });
@@ -424,6 +520,8 @@ $('.plus').click(function() {
       {
          i++;
          nft_quantity.innerText = i;
+         setQuantity(i);
+
          var x = nft_price * Number(nft_quantity.innerText);
          price.text(x + ' ₽');
       }
@@ -434,11 +532,12 @@ $('.plus').click(function() {
        {
          i++;
          nft_quantity.innerText = i;
+         setQuantity(i);
          var x = nft_price_physic * Number(nft_quantity.innerText);
          price.text(x + ' ₽');
        }
     }
-    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
+//    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
 });
 
 $('.minus').click(function() {
@@ -451,16 +550,18 @@ $('.minus').click(function() {
         if(selected == selected_text) {
             i--;
             nft_quantity.innerText = i;
+            setQuantity(i);
             var x = nft_price * Number(nft_quantity.innerText);
             price.text(x + ' ₽');
         } else {
             i--;
             nft_quantity.innerText = i;
+            setQuantity(i);
             var y = nft_price_physic * Number(nft_quantity.innerText);
             price.text(0 + ' ₽');
         }
     }   
-    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
+//    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
 }); 
 
 $('.plus-mob').click(function() {
@@ -475,6 +576,7 @@ $('.plus-mob').click(function() {
       {
          i++;
          nft_quantity.innerText = i;
+         setQuantity(i);
          var x = nft_price * Number(nft_quantity.innerText);
          price.text(x + ' ₽');
       }
@@ -485,11 +587,12 @@ $('.plus-mob').click(function() {
        {
          i++;
          nft_quantity.innerText = i;
+         setQuantity(i);
          var x = nft_price_physic * Number(nft_quantity.innerText);
          price.text(x + ' ₽');
        }
     }
-    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
+//    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
 });
 
 $('.minus-mob').click(function() {
@@ -502,16 +605,18 @@ $('.minus-mob').click(function() {
         if(selected == selected_text) {
             i--;
             nft_quantity.innerText = i;
+            setQuantity(i);
             var x = nft_price * Number(nft_quantity.innerText);
             price.text(x + ' ₽');
         } else {
             i--;
             nft_quantity.innerText = i;
+            setQuantity(i);
             var y = nft_price_physic * Number(nft_quantity.innerText);
             price.text(y + ' ₽');
         }
     }  
-    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
+//    $('.buy .btn-black').attr("href", "#order:NFT =" + parseInt(price.text()) + ":::image=https://static.tildacdn.com/stor6437-3230-4135-b134-393363383930/61903249.png");
 }); 
     
     $('.question').hover(function () {
@@ -530,10 +635,11 @@ $('.minus-mob').click(function() {
             bar.css({width: Number(span) * 0.1 + '%'})
         })
     })
+
     
-    $('.buy .btn-black').click(function () {
-//       const token = buildToken('nft test', 1000, 5, 'https://wallpapershome.ru/images/pages/pic_v/21485.jpg', 'hjhjh__jkjkk-hhhh543');
-//       addTokenToCart(token);
+    $('#buy-button').click(function () {
+         const token = getToken(asset);
+         addTokenToCart(token);
 
 
         var prod_quantity = $('.t706__product-quantity').text(); 
