@@ -85,7 +85,7 @@ window.myAfterSendedFunction = function (form) {
     Array.prototype.forEach.call(inputs, function (input) {                               
       obj[input.name] = input.value;
     });
-    const data = berpSDK.api.synCartToOffer(obj['email'], window.tcart);
+//    const data = berpSDK.api.synCartToOffer(obj['email'], window.tcart);
 
 //    const tcart localStorage.get('tcart');
 //    alert(toStringForm(obj));
