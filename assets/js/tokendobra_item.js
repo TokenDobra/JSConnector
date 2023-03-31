@@ -182,13 +182,16 @@ const getParamsBuy = (obj)=>{
              value: parseInt(obj.offer_quantity) - parseInt(obj.quantity)
            },
 
-
+           {name: '${description}',
+             value: obj.asset_data.description
+           },
            {name: '${author}',
              value: getFullName(obj.asset_data.subject_specification_data.person_data)
            },
            {name: '${progress}',
              value: 100*(parseInt(obj.offer_quantity) - parseInt(obj.quantity))/parseInt(obj.offer_quantity)
            },
+
            ];
 }
 
