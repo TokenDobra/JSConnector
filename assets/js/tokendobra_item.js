@@ -70,7 +70,7 @@ const getPriceAsset = (a)=>
      return parseInt(a.price_physic);
    return parseInt(a.price);
 }
-const getQuantityAsset = ()=>
+const getQuantityAsset = (a)=>
 {
    if(isPhysic(a))
      return parseInt(a.quantity_physic);
