@@ -39,7 +39,7 @@ const getRecID = ()=>
 
 $(document).ready(function(){
 //   loadContent();
-  const token = buildToken = ('nft test', 1000, 5, 'https://wallpapershome.ru/images/pages/pic_v/21485.jpg', 'hjhjh__jkjkk-hhhh543');
+  const token = buildToken('nft test', 1000, 5, 'https://wallpapershome.ru/images/pages/pic_v/21485.jpg', 'hjhjh__jkjkk-hhhh543');
 
   console.log('tcart', window.tcart); 
   addTokenToCart(token);
