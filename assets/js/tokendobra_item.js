@@ -447,7 +447,7 @@ const postLoadingScript = ()=>{
 
 const setRestQuantity = ()=>{
    const q = getRestQuantity(asset);
-   const el = $('#rest_quantity');
+   const el = $('.rest_quantity');
    el.text(q);
 }
 dropdowns.forEach(dropdown => {
