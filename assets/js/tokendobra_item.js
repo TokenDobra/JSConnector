@@ -136,7 +136,7 @@ const getParamsFund = (obj) => {
              value: ''
            },
            {name: '${avatar}',
-             value: 'https://github.com/jamb17/token-dobra/blob/main/avatar.png?raw=true'
+             value: 'https://drive.google.com/file/d/1Zr14h-l6rK5z-QxpyuB0CeInfUCehoxO/view?usp=sharing'
            },
            {name: '${name}',
              value: obj['subject_data.name']
@@ -146,7 +146,7 @@ const getParamsFund = (obj) => {
              value: 12
            },
            {name: '${nft}',
-             value: obj.offer_quantity
+             value: 1200
            },
            {name: '${fund_url}',
              value: 'fund'
@@ -210,7 +210,7 @@ const loadFundPCGallery = async (offers) =>
 {
   const formWork = await loadForm(templFundPCWork);
 
-  const content = offers.reverse().slice(0,4).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  const content = offers.reverse().slice(0,3).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
   $('.funds.pc>.container .wrapper').append(content);
 }
 

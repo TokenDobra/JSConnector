@@ -4,11 +4,11 @@
                             alt="">
                         <div class="tips">
                             <span class="tool"
-                                data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
+                                data-tool="Сделав пожертвование в нашей галереи, вы получаете pre-NFT. Это ваучер, резервирующий для вас NFT выбранной картины">
                                 <p class="tip">pre-NFT</p>
                             </span>
                             <span class="tool"
-                                data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
+                                data-tool="Эту картину можно купить в оригинале">
                                 <p class="tip">картина</p>
                             </span>
                         </div>
@@ -17,7 +17,7 @@
                             <div class="stats">
                                 <p class="price">${asset_price} ₽</p>
                                 <span
-                                    data-tool="Эта картина оцифрована в количестве 100 токенов. 1 токенов по цене 1000 ₽ и 1 токен по цене 30 000 ₽."
+                                    data-tool="Эта картина оцифрована в количестве ${quantity} токенов"
                                     class="tool">
                                     <p class="count tip2"><span class="nft-quantity">${sale_quantity}</span> / ${quantity}</p>
                                 </span>

@@ -3,11 +3,11 @@
                 <img src="${image_asset}" alt="">
                 <div class="tips">
                     <span class="tool tip"
-                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
+                        data-tool="Сделав пожертвование в нашей галереи, вы получаете pre-NFT. Это ваучер, резервирующий для вас NFT выбранной картины">
                         <p>pre-NFT</p>
                     </span>
                     <span class="tool tip"
-                        data-tool="Оплачивайте pre-NFT банковской картой. Вам не нужен web3 кошелёк и криптовалюта. В любой момент вы сможете обменять приобретённый pre-NFT на NFT">
+                        data-tool="Эту картину можно купить в оригинале">
                         <p>картина</p>
                     </span>
                 </div>
@@ -20,7 +20,7 @@
                         </div>
                         <div class="progress-bar"><div class="bar" style="width: ${progress}%;"></div></div>
                         <span
-                            data-tool="Эта картина оцифрована в количестве 100 токенов. 1 токенов по цене ${asset_price} ₽ и 1 токен по цене 30 000 ₽."
+                            data-tool="Эта картина оцифрована в количестве ${quantity} токенов"
                             class="tool">
                             <p class="count tip2"><span>${sale_quantity}</span> / ${quantity}</p>
                         </span>
