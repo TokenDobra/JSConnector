@@ -445,7 +445,7 @@ dropdowns.forEach(dropdown => {
     var nft_quantity = document.getElementById('nft-quantity');
     var nft_quantity_mob = document.getElementById('nft-quantity-mob');
     const first_option = 'pre-NFT';
-    const second_option = '1 pre-NFT и 1 картина';
+    const second_option = 'Оригинал';
 
 
     if(nft_max_quantity_physic != 0)
