@@ -446,7 +446,9 @@ const postLoadingScript = ()=>{
 
 
 const setRestQuantity = ()=>{
-   $('#rest_quantity').text(getRestQuantity(asset));
+   const q = getRestQuantity(asset);
+   const el = $('#rest_quantity');
+   el.text(q);
 }
 dropdowns.forEach(dropdown => {
     const select = dropdown.querySelector('.select');
