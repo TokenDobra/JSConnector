@@ -1,4 +1,4 @@
-            <p class="title">Фонды</p>
+            <p class="title">Организации</p>
             <div class="fund">
                 <div class="content">
                     <div onclick="location.href='${fund_url}'" class="description">

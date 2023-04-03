@@ -1,4 +1,4 @@
-            <p class="title">Другие картины из этого фонда</p>
+            <p class="title">Другие картины из этой организации</p>
             <div class="fund">
                 <div class="content">
                     <div onclick="location.href='fund'" class="description">
