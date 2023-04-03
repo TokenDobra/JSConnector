@@ -136,7 +136,7 @@ const getParamsFund = (obj) => {
              value: ''
            },
            {name: '${avatar}',
-             value: 'https://drive.google.com/file/d/1Zr14h-l6rK5z-QxpyuB0CeInfUCehoxO/view?usp=sharing'
+             value: 'https://tilda.tokendobra.ru/assets/images/ЦПА_logo.png'
            },
            {name: '${name}',
              value: obj['subject_data.name']
