@@ -64,6 +64,8 @@ const setQuantity = (quantity) =>
 }
 
 
+
+
 const getPriceAsset = (a)=>
 {
    if(isPhysic(a))
@@ -76,6 +78,13 @@ const getQuantityAsset = (a)=>
      return parseInt(a.quantity_physic);
    return parseInt(a.quantity);
 }
+const getRestQuantity = (a) =>
+{
+   if(isPhysic(a))
+     return parseInt(nft_max_quantity_physic);
+   return nft_max_quantity;
+}
+
 const getRegAsset = (a)=>
 {
    if(isPhysic(a))
@@ -436,6 +445,9 @@ const postLoadingScript = ()=>{
 */
 
 
+const setRestQuantity = ()=>{
+   $('#rest_quantity').text(getRestQuantity(asset));
+}
 dropdowns.forEach(dropdown => {
     const select = dropdown.querySelector('.select');
     const caret = dropdown.querySelector('.caret');
@@ -472,6 +484,8 @@ dropdowns.forEach(dropdown => {
                     price.text(y + ' ₽');    
                 }
                 setQuantity(1);
+                setRestQuantity();
+
 
             } else {
                 setPhysic(true);
@@ -482,6 +496,9 @@ dropdowns.forEach(dropdown => {
                 
                 price.text(nft_price_physic + ' ₽');    
                 setQuantity(1);
+                setRestQuantity();
+                
+                
 
 
                 if($(window).width() < 770) {
@@ -524,6 +541,8 @@ $('.plus').click(function() {
          i++;
          nft_quantity.innerText = i;
          setQuantity(i);
+         setRestQuantity();
+
 
          var x = nft_price * Number(nft_quantity.innerText);
          price.text(x + ' ₽');
@@ -536,6 +555,8 @@ $('.plus').click(function() {
          i++;
          nft_quantity.innerText = i;
          setQuantity(i);
+         setRestQuantity();
+
          var x = nft_price_physic * Number(nft_quantity.innerText);
          price.text(x + ' ₽');
        }
@@ -554,12 +575,16 @@ $('.minus').click(function() {
             i--;
             nft_quantity.innerText = i;
             setQuantity(i);
+            setRestQuantity();
+
             var x = nft_price * Number(nft_quantity.innerText);
             price.text(x + ' ₽');
         } else {
             i--;
             nft_quantity.innerText = i;
             setQuantity(i);
+            setRestQuantity();
+
             var y = nft_price_physic * Number(nft_quantity.innerText);
             price.text(0 + ' ₽');
         }
@@ -580,6 +605,8 @@ $('.plus-mob').click(function() {
          i++;
          nft_quantity.innerText = i;
          setQuantity(i);
+         setRestQuantity();
+
          var x = nft_price * Number(nft_quantity.innerText);
          price.text(x + ' ₽');
       }
@@ -591,6 +618,8 @@ $('.plus-mob').click(function() {
          i++;
          nft_quantity.innerText = i;
          setQuantity(i);
+         setRestQuantity();
+
          var x = nft_price_physic * Number(nft_quantity.innerText);
          price.text(x + ' ₽');
        }
@@ -609,12 +638,16 @@ $('.minus-mob').click(function() {
             i--;
             nft_quantity.innerText = i;
             setQuantity(i);
+            setRestQuantity();
+
             var x = nft_price * Number(nft_quantity.innerText);
             price.text(x + ' ₽');
         } else {
             i--;
             nft_quantity.innerText = i;
             setQuantity(i);
+            setRestQuantity();
+
             var y = nft_price_physic * Number(nft_quantity.innerText);
             price.text(y + ' ₽');
         }

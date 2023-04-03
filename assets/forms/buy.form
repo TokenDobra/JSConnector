@@ -21,7 +21,7 @@
                     </div>
                     <div class="head">
                         <p class="price">${asset_price} ₽</p>
-                        <p class="how-many-left">Осталось ${quantity} шт.</p>
+                        <p class="how-many-left">Осталось <span id='rest_quantity'>${quantity}</span> шт.</p>
                     </div>
                     <div class="dropdown">
                         <div class="select">
@@ -96,7 +96,7 @@
                 </div>
                 <div class="head">
                     <p class="price">${asset_price} ₽</p>
-                    <p class="how-many-left">Осталось ${rest_quantity} шт.</p>
+                    <p class="how-many-left">Осталось <span id='rest_quantity'>${quantity}</span> шт.</p>
                 </div>
                 <div class="dropdown">
                     <div class="select">
