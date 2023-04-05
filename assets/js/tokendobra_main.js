@@ -68,7 +68,7 @@ const loadGallery = async (offers) =>
 {
   const formWork = await loadForm(templWork);
 
-  const content = offers.reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  const content = offers.slice(0,8).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
   $('.works').append(content);
 }
 
