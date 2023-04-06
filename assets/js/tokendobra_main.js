@@ -51,6 +51,10 @@ const getParamsFund = (obj, prefix) => {
            {name: '${avatar}',
              value: getAttribute(obj, 'Second lable')
            },
+           {name: '${short}',
+             value: getAttribute(obj, 'Short')
+           },
+
            {name: '${name}',
              value: obj.subject_data.name
            },
