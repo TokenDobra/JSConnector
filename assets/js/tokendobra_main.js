@@ -107,7 +107,7 @@ const loadFundPC  = async (offers)=>
      await loadFundPCGallery(s.offers, prefix + s.subject_data.uuid);
 }
 
-const loadFundGallery = async (offers) =>
+const loadFundGallery = async (offers, conteiner) =>
 {
   const formWork = await loadForm(templFundWork);
 
