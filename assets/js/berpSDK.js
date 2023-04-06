@@ -18,7 +18,7 @@ const CBerpAPI = class
       {
          const response = await fetch(url);
          const result = await response.json();
-         console.log(result);
+//         console.log(result);
          if(!result.ok)
          {
             console.log('resualt error on: ' + url, result.error);
@@ -44,7 +44,7 @@ const CBerpAPI = class
                                        body: JSON.stringify(data)
                                      });
          const result = await response.json();
-         console.log(result);
+//         console.log(result);
          if(!result.ok)
          {
             console.log('resualt error on: ' + url, result.error);
@@ -139,7 +139,7 @@ const reduceSubjects = (offers)=>{
      subjects[index].offers.push(offer);
      return subjects;
 
-   }, []).sort((a, b) => parseInt(a.subject_data.order) > parseInt(b.subject_data.order)?-1:1);
+   }, []).sort((a, b) => parseInt(a.subject_data.order) > parseInt(b.subject_data.order)?1:-1);
 
 }
 const getAttribute = (obj, name)=>
