@@ -8,11 +8,11 @@
                            <p>${assets} картин | ${nft} NFT</p>
                         </div>
                         <div class="story">
-                            <p class="story"> Экспертный центр, автор передовой модели инклюзивной школы и организатор тематической конференции. <a href="${fund_url}">Подробнее</a></p>
+                            <p class="story"> ${short} <a href="${fund_url}">Подробнее</a></p>
                         </div>
                     </div>
                     <div class="nft-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
-                        <div class="wrapper swiper-wrapper" id="swiper-wrapper-31016109f045137ebc" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(-824px, 0px, 0px);">
+                        <div class="wrapper swiper-wrapper ${gallery}" id="swiper-wrapper-31016109f045137ebc" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(-824px, 0px, 0px);">
                         </div>
                     </div>
                     <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>

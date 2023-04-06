@@ -99,7 +99,61 @@ const CBerpSDK = class
      this.api = new CBerpAPI(api_host, this.store);
   }
 }
+const shuffleArray = (array) => 
+{
+    const copyArray = array.map((obj)=>obj);
+    for (let i = copyArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copyArray[i], copyArray[j]] = [copyArray[j], copyArray[i]];
+    }
+    return copyArray;
+}
+const findSubjectIndex = (subjects, uuid)=>
+{
+   let index = -1;
+   for(let i=0; i < subjects.length;i++)
+   {
+      if(subjects[i].subject_data.uuid == uuid)
+      {
+         index = i;
+         break;
+      }
+   }
+   return index;
+}
+const reduceSubjects = (offers)=>{
+   return offers.reduce((subjects, offer)=>{
+     let index = findSubjectIndex(subjects, offer.subject_data.uuid);
+     if(index == -1)
+     {
+        subjects.push({
+           subject_data: offer.subject_data,
+           count_assets: 0,
+           count_nft: 0,
+           offers: [],
+        });
+        index++;
+     }
+     subjects[index].count_assets++;
+     subjects[index].count_nft += parseInt(offer.offer_quantity);
+     subjects[index].offers.push(offer);
+     return subjects;
 
+   }, []);
+
+}
+const getAttribute = (obj, name)=>
+{
+
+   const attr = obj.subject_data.attributes.find((a)=>a.attribute_data.name == name);
+   if(attr === undefined)
+     return '';
+   if(attr.text_value !== undefined &&  attr.text_value !== null && attr.text_value !== '')
+     return text_value;
+   if(attr.string_value !== undefined &&  attr.string_value !== null && attr.string_value !== '')
+     return string_value;
+   return '';
+}
 $(document).ready(function(){
   berpSDK = new CBerpSDK(dataSource.api);
 })  
