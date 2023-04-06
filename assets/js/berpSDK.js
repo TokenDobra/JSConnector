@@ -132,7 +132,7 @@ const reduceSubjects = (offers)=>{
            count_nft: 0,
            offers: [],
         });
-        index++;
+        index = subjects.length - 1;
      }
      subjects[index].count_assets++;
      subjects[index].count_nft += parseInt(offer.offer_quantity);
