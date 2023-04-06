@@ -143,7 +143,7 @@ const fillFormData = (form, params)=>{
 
 const getFullName = (obj)=>
 {
-   const name =  obj.first_name;
+   let name =  obj.first_name;
    if(obj.middle_name !== '')
      name += ' ' + obj.middle_name;
    if(obj.last_name !== '')
