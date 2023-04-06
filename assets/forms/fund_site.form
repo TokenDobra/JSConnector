@@ -1,1 +1,1 @@
-<div><p>Сайт: <a href="${home_url}" target='_blank'>${home_site}</a></p></div>
+<p>Сайт: <a href="${home_url}" target='_blank'>${home_site}</a></p>
