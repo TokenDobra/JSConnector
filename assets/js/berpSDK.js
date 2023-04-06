@@ -151,7 +151,11 @@ const getAttribute = (obj, name)=>
    if(attr.text_value !== undefined &&  attr.text_value !== null && attr.text_value !== '')
      return attr.text_value;
    if(attr.string_value !== undefined &&  attr.string_value !== null && attr.string_value !== '')
-     return attr.string_value;
+   {
+     if(attr.attribute_data.type_value != 4)
+       return attr.string_value;
+     return dataSource.api + '/files/' + attr.string_value;
+   }
    return '';
 }
 $(document).ready(function(){
