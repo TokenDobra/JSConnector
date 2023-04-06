@@ -1,6 +1,6 @@
 const templWork = 'fund_page_work.form';
-
-
+const templFund = 'fund_page.form';
+const templSite = 'fund_site.form';
 
 
 const getParams = (obj)=>{
@@ -33,6 +33,25 @@ const getParams = (obj)=>{
            },
            ];
 }
+
+const getParamsFund = (obj) => {
+
+   return [{name: '${avatar}',
+             value: getAttribute(obj, 'Lable')
+           },
+           {name: '${name}',
+             value: obj.subject_data.name
+           },
+
+           {name: '${assets}',
+             value: obj.count_assets
+           },
+           {name: '${nft}',
+             value: obj.count_nft
+           },
+          ];
+}
+
 const loadGallery = async (offers) =>
 {
   const formWork = await loadForm(templWork);
@@ -42,17 +61,43 @@ const loadGallery = async (offers) =>
 }
 
 
+const loadMainSite = async (subject)=>
+{
+  const formSite = await loadForm(templSite);
+  const home_url = getAttribute(subject, 'Site');
+  let domain = (new URL(url));
+  const content = fillFormData(formSite, [{name:'${home_site}': value:domain.hostname}, {name:'${home_url}': value:home_url}]);
 
-const loadContent = async() =>
+  $('.description').append(content);
+
+
+}
+const loadContent = async (uuid) =>
 {
   const offers = await berpSDK.api.getOffers();
   if(!offers.length)
     return;
 
-  await loadGallery(offers);
+  const formFund = await loadForm(templFund);
+  const subjects = reduceSubjects(offers);
+  const subject =  subjects.find((s)=>s.subject_data.uuid == uuid);
+
+  const content = fillFormData(formFund, getParamsFund(subject));
+  $('.main-image>.container').append(content);
+  $('.description').append(getAttribute(subject, 'Description'));
+  await loadMainSite(subject);
+
+
+
+
+  await loadGallery(subject.offers);
 }
 
 $(document).ready(function(){
-   loadContent();
+   const queryString = window.location.search;
+   const urlParams = new URLSearchParams(queryString);
+   let uuid = urlParams.get('uuid');
+
+   loadContent(uuid);
 });
           

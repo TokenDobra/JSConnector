@@ -1,0 +1,14 @@
+            <img src="${avatar}"
+                alt="" class="avatar">
+            <h1>${name}</h1>
+            <div class="brief">
+                <div class="picture-quantity">
+                    <p>Картин</p>
+                    <p>${assets}</p>
+                </div>
+                <div class="divider"></div>
+                <div class="nft-quantity">
+                    <p>NFT</p>
+                    <p>${nft}</p>
+                </div>
+            </div>
