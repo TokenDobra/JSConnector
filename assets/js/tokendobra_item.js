@@ -179,7 +179,7 @@ const getParamsBuy = (obj)=>{
              value: obj.link_address
            },
            {name: '${fund_name}',
-             value: obj['subject_data.name']
+             value: obj.subject_data.name
            },
 
            {name: '${asset_name}',
