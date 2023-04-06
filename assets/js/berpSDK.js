@@ -149,9 +149,9 @@ const getAttribute = (obj, name)=>
    if(attr === undefined)
      return '';
    if(attr.text_value !== undefined &&  attr.text_value !== null && attr.text_value !== '')
-     return text_value;
+     return attr.text_value;
    if(attr.string_value !== undefined &&  attr.string_value !== null && attr.string_value !== '')
-     return string_value;
+     return attr.string_value;
    return '';
 }
 $(document).ready(function(){
