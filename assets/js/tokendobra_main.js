@@ -85,7 +85,7 @@ const loadFundPCGallery = async (offers, conteiner) =>
 {
   const formWork = await loadForm(templFundPCWork);
 
-  const content = offers.reverse.slice(0,3).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  const content = offers.reverse().slice(0,3).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
   $('.' + conteiner).append(content);
 }
 
@@ -107,7 +107,7 @@ const loadFundGallery = async (offers) =>
 {
   const formWork = await loadForm(templFundWork);
 
-  const content = offers.reverse.reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  const content = offers.reverse().reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
   $('.' + conteiner).append(content);                                                                                        
 }
 
