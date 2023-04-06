@@ -65,7 +65,7 @@ const loadMainSite = async (subject)=>
 {
   const formSite = await loadForm(templSite);
   const home_url = getAttribute(subject, 'Site');
-  let domain = (new URL(url));
+  let domain = (new URL(home_url));
   const content = fillFormData(formSite, [{name:'${home_site}', value:domain.hostname}, {name:'${home_url}', value:home_url}]);
 
   $('.description').append(content);
