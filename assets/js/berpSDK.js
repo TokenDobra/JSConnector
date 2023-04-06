@@ -152,7 +152,7 @@ const getAttribute = (obj, name)=>
      return attr.text_value;
    if(attr.string_value !== undefined &&  attr.string_value !== null && attr.string_value !== '')
    {
-     if(attr.attribute_data.type_value != 4)
+     if(attr.attribute_data.type_value != "media")
        return attr.string_value;
      return dataSource.api + '/files/' + attr.string_value;
    }
