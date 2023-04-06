@@ -139,7 +139,7 @@ const reduceSubjects = (offers)=>{
      subjects[index].offers.push(offer);
      return subjects;
 
-   }, []);
+   }, []).sort((a, b) => parseInt(a.subject_data.order) < parseInt(b.subject_data.order));
 
 }
 const getAttribute = (obj, name)=>
