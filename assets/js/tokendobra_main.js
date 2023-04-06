@@ -64,11 +64,21 @@ const getParamsFund = (obj) => {
            },
           ];
 }
+
+const shuffleArray = (array) => 
+{
+    const copyArray = array.map((obj)=>obj);
+    for (let i = copyArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copyArray[i], copyArray[j]] = [copyArray[j], copyArray[i]];
+    }
+    return copyArray;
+}
 const loadGallery = async (offers) =>
 {
   const formWork = await loadForm(templWork);
 
-  const content = offers.slice(0,8).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
+  const content = shuffleArray(offers).slice(0,8).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
   $('.works').append(content);
 }
 
