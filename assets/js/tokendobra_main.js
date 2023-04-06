@@ -49,7 +49,7 @@ const getParamsFund = (obj, pefix) => {
              value: ''
            },
            {name: '${avatar}',
-             value: getAttribute(obj, 'Second lable');
+             value: getAttribute(obj, 'Second lable')
            },
            {name: '${name}',
              value: obj.subject_data.name
