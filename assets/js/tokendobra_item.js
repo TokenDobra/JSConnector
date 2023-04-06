@@ -130,29 +130,39 @@ const getParams = (obj)=>{
 
            ];
 }
-const getParamsFund = (obj) => {
+
+const getParamsFund = (obj, prefix) => {
 
    return [{ name: '${url}',
              value: ''
            },
            {name: '${avatar}',
-             value: 'https://tilda.tokendobra.ru/assets/images/ЦПА_logo.png'
+             value: getAttribute(obj, 'Second lable')
            },
+           {name: '${short}',
+             value: getAttribute(obj, 'Short')
+           },
+
            {name: '${name}',
-             value: obj['subject_data.name']
+             value: obj.subject_data.name
            },
 
            {name: '${assets}',
-             value: 12
+             value: obj.count_assets
            },
            {name: '${nft}',
-             value: 1200
+             value: obj.count_nft
            },
            {name: '${fund_url}',
-             value: 'fund'
+             value: 'fund?uuid=' + obj.subject_data.uuid
            },
+           {
+              name: '${gallery}',
+              value: prefix+obj.subject_data.uuid
+           }
           ];
 }
+
 const getParamsPicture = (obj) => {
     return [{name: '${image_asset}',
              value: obj.link_address
@@ -206,38 +216,54 @@ const getParamsBuy = (obj)=>{
 
 
 
-const loadFundPCGallery = async (offers) =>
+const loadFundPCGallery = async (offers, conteiner) =>
 {
   const formWork = await loadForm(templFundPCWork);
 
   const content = offers.reverse().slice(0,3).reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
-  $('.funds.pc>.container .wrapper').append(content);
+  $('.' + conteiner).append(content);
 }
+/*
+  subjects.map((subject)=>{
+     const content = fillFormData(formFundPC, getParamsFund(subject, prefix));
+     $('.funds.pc>.container').append(content);
+  });
+  for(let s of subjects)
+     await loadFundPCGallery(s.offers, prefix + s.subject_data.uuid);
+*/
 
 
-
-const loadFundPC  = async (offers)=>
+const loadFundPC  = async (offer, offers)=>
 {
   const formFundPC = await loadForm(templFundPC);
-  const content = fillFormData(formFundPC, getParamsFund(offers[0]));
+  const subjects = reduceSubjects(offers);
+  const subject =  subjects.find((s)=>s.subject_data.uuid == offer.subject_data.uuid);
+  const prefix = 'gallery_pc_';
+
+  const content = fillFormData(formFundPC, getParamsFund(subject, prefix));
   $('.funds.pc>.container').append(content);
-  await loadFundPCGallery(offers);
+  await loadFundPCGallery(subject.offers, prefix + subject.subject_data.uuid);
 }
 
-const loadFundGallery = async (offers) =>
+const loadFundGallery = async (offers, conteiner) =>
 {
   const formWork = await loadForm(templFundWork);
 
   const content = offers.reverse().reduce((cont,obj)=>cont + fillFormData(formWork, getParams(obj)), '');
-  $('.funds:not(.pc)>.container .wrapper').append(content);
+  $('.' + conteiner).append(content);
 }
 
-const loadFund  = async (offers)=>
+const loadFund  = async (offer, offers)=>
 {
   const formFund = await loadForm(templFund);
-  const content = fillFormData(formFund, getParamsFund(offers[0]));
+
+  const subjects = reduceSubjects(offers);
+  const subject =  subjects.find((s)=>s.subject_data.uuid == offer.subject_data.uuid);
+  const prefix = 'gallery_';
+
+  const content = fillFormData(formFund, getParamsFund(subject, prefix));
   $('.funds:not(.pc)>.container').append(content);
-  await loadFundGallery(offers);
+  await loadFundGallery(subject.offers, prefix + subject.subject_data.uuid);
 }
 
 const loadPicture  = async (offer)=>
@@ -293,8 +319,8 @@ const loadContent = async(offerUUID) =>
   await loadPicture(offer);
   await loadBuy(offer);
 
-  await loadFundPC(offers);
-  await loadFund(offers);
+  await loadFundPC(offer, offers);
+  await loadFund(offer, offers);
   postLoadingScript();
 
 
