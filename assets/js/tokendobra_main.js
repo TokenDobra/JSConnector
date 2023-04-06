@@ -66,7 +66,7 @@ const getParamsFund = (obj, pefix) => {
            },
            {
               name: '${gallery}',
-              value: prefix+obj.subject_data.uuid;
+              value: prefix+obj.subject_data.uuid
            }
           ];
 }
