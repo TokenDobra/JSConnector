@@ -43,7 +43,7 @@ const getParams = (obj)=>{
 }
 
 
-const getParamsFund = (obj, pefix) => {
+const getParamsFund = (obj, prefix) => {
 
    return [{ name: '${url}',
              value: ''
