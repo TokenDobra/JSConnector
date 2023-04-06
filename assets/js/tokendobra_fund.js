@@ -67,8 +67,8 @@ const loadMainSite = async (subject)=>
   const home_url = getAttribute(subject, 'Site');
   let domain = (new URL(home_url));
   const content = fillFormData(formSite, [{name:'${home_site}', value:domain.hostname}, {name:'${home_url}', value:home_url}]);
-
-  $('.description').append(content);
+  return content;
+//  $('.description').append(content);
 
 
 }
@@ -84,11 +84,8 @@ const loadContent = async (uuid) =>
 
   const content = fillFormData(formFund, getParamsFund(subject));
   $('.main-image>.container').append(content);
-  $('.description').append(getAttribute(subject, 'Description'));
-  await loadMainSite(subject);
-
-
-
+  const site = await loadMainSite(subject);
+  $('.description').append('<div>' + getAttribute(subject, 'Description') + site + '</div>');
 
   await loadGallery(subject.offers);
 }
